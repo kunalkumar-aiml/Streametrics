@@ -1,0 +1,10 @@
+{
+  "name": "ott-dbms-mini-project",
+  "private": true,
+  "scripts": {
+    "dev": "PORT=5050 npm --prefix backend run dev",
+    "start": "PORT=5050 npm --prefix backend start",
+    "db:init": "npm --prefix backend run db:init",
+    "check": "npm --prefix backend run check"
+  }
+}

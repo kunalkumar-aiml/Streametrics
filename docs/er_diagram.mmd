@@ -1,0 +1,96 @@
+erDiagram
+    USERS ||--o{ WATCH_HISTORY : watches
+    USERS ||--o{ NOTIFICATIONS : receives
+    USERS ||--o{ LOGIN_ACTIVITY : logs
+    USERS ||--o{ FAVORITES : marks
+    USERS ||--o{ SUBSCRIPTIONS : has
+    USERS ||--o{ RECOMMENDATIONS : gets
+    USERS ||--o{ MOVIES : creates
+
+    MOVIES ||--o{ WATCH_HISTORY : viewed_in
+    MOVIES ||--o{ FAVORITES : bookmarked
+    MOVIES ||--o{ RECOMMENDATIONS : suggested
+    MOVIES ||--o{ MOVIE_GENRES : mapped_to
+    GENRES ||--o{ MOVIE_GENRES : classifies
+
+    USERS {
+        int user_id
+        varchar username
+        varchar password_hash
+        varchar full_name
+        varchar email
+        datetime last_login
+        bool is_active
+    }
+
+    MOVIES {
+        int movie_id
+        varchar title
+        year release_year
+        int duration
+        decimal rating
+        text description
+        varchar poster_url
+        int created_by_user
+    }
+
+    GENRES {
+        int genre_id
+        varchar name
+    }
+
+    MOVIE_GENRES {
+        int movie_id
+        int genre_id
+    }
+
+    WATCH_HISTORY {
+        bigint history_id
+        int user_id
+        int movie_id
+        datetime watch_timestamp
+        tinyint progress_percent
+    }
+
+    NOTIFICATIONS {
+        bigint notification_id
+        int user_id
+        varchar type
+        varchar message
+        bool is_read
+        timestamp created_at
+    }
+
+    LOGIN_ACTIVITY {
+        bigint login_id
+        int user_id
+        datetime login_timestamp
+        varchar ip_address
+        varchar device_info
+        bool success
+    }
+
+    FAVORITES {
+        bigint favorite_id
+        int user_id
+        int movie_id
+        timestamp created_at
+    }
+
+    SUBSCRIPTIONS {
+        bigint subscription_id
+        int user_id
+        varchar plan_name
+        date start_date
+        date end_date
+        varchar status
+    }
+
+    RECOMMENDATIONS {
+        bigint recommendation_id
+        int user_id
+        int movie_id
+        decimal score
+        varchar reason
+        timestamp created_at
+    }

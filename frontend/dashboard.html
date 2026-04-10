@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OTT Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dashboard-body">
+  <header class="topbar glass">
+    <div>
+      <h1>OTT Dashboard</h1>
+      <p id="welcomeText">Welcome</p>
+    </div>
+    <button id="logoutBtn" class="logout-btn">Logout</button>
+  </header>
+
+  <section class="section-block">
+    <h2>Trending Movies</h2>
+    <div id="trendingMovies" class="movie-grid trending"></div>
+  </section>
+
+  <section class="section-block">
+    <h2>Movie Library</h2>
+    <div id="movieGrid" class="movie-grid"></div>
+  </section>
+
+  <section class="two-col">
+    <div class="panel glass">
+      <h2>Watch History</h2>
+      <div id="watchHistory" class="list"></div>
+    </div>
+
+    <div class="panel glass">
+      <h2>Notifications</h2>
+      <div id="notificationList" class="list"></div>
+    </div>
+  </section>
+
+  <div id="playerOverlay" class="player-overlay hidden">
+    <div class="player-card">
+      <h3 id="playingTitle">Now Playing</h3>
+      <p>Simulating movie playback...</p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>Name: Yash Raj &nbsp; | &nbsp; Reg No: RA2411026010746</p>
+    <p>Name: Kunal Kumar &nbsp; | &nbsp; Reg No: RA2411026010747</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
