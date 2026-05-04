@@ -1,0 +1,17 @@
+# Database engine (portable MariaDB)
+.db_server/
+mariadb.zip
+
+# Node
+node_modules/
+backend/node_modules/
+
+# Env
+backend/.env
+
+# Temp HTML used for screenshot generation
+docs/code1.html
+docs/code2.html
+docs/code3.html
+docs/db_screenshot.html
+docs/generate_code_images.ps1

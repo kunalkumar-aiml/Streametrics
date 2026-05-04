@@ -3,50 +3,103 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OTT Dashboard</title>
+  <title>Streametrics | Home</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="dashboard-body">
-  <header class="topbar glass">
-    <div>
-      <h1>OTT Dashboard</h1>
-      <p id="welcomeText">Welcome</p>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-left">
+      <div class="logo">Streametrics</div>
+      <ul class="nav-links">
+        <li class="active">Home</li>
+        <li>Movies</li>
+        <li>My List</li>
+      </ul>
     </div>
-    <button id="logoutBtn" class="logout-btn">Logout</button>
+    <div class="nav-right">
+      <div class="search-wrap" id="searchWrap">
+        <button class="search-btn" id="searchBtn">🔍</button>
+        <input class="search-field" id="searchField" type="text" placeholder="Search titles, genres…" />
+      </div>
+      <span class="user-name" id="welcomeText"></span>
+      <button class="sign-out-btn" id="logoutBtn">Sign Out</button>
+    </div>
   </header>
 
-  <section class="section-block">
-    <h2>Trending Movies</h2>
-    <div id="trendingMovies" class="movie-grid trending"></div>
+  <!-- Hero Banner -->
+  <section class="hero" id="heroBanner">
+    <div class="hero-content">
+      <h1 class="hero-title" id="heroTitle">Loading…</h1>
+      <div class="hero-meta">
+        <span class="match" id="heroMatch">98% Match</span>
+        <span id="heroYear">—</span>
+        <span class="tag" id="heroRating">—</span>
+        <span id="heroDuration">—</span>
+      </div>
+      <p class="hero-desc" id="heroDesc">Discover curated content on Streametrics.</p>
+      <div class="hero-actions">
+        <button class="btn btn-play" id="heroPlayBtn">▶ Play</button>
+        <button class="btn btn-info" id="heroInfoBtn">ⓘ More Info</button>
+        <button class="btn-fav" id="heroFavBtn" title="Add to My List">+</button>
+      </div>
+    </div>
   </section>
 
-  <section class="section-block">
-    <h2>Movie Library</h2>
-    <div id="movieGrid" class="movie-grid"></div>
-  </section>
+  <!-- Content Rows -->
+  <main style="position:relative; z-index:20; margin-top:-60px;">
+    <section class="row" id="trendingRow">
+      <h2 class="row-title">Trending Now</h2>
+      <div class="row-wrap">
+        <button class="scroll-arrow left" onclick="scrollSlider('trendingSlider',-1)">‹</button>
+        <div class="slider" id="trendingSlider"></div>
+        <button class="scroll-arrow right" onclick="scrollSlider('trendingSlider',1)">›</button>
+      </div>
+    </section>
 
-  <section class="two-col">
-    <div class="panel glass">
+    <section class="row" id="favoritesRow" style="display:none;">
+      <h2 class="row-title">My List</h2>
+      <div class="row-wrap">
+        <button class="scroll-arrow left" onclick="scrollSlider('favoritesSlider',-1)">‹</button>
+        <div class="slider" id="favoritesSlider"></div>
+        <button class="scroll-arrow right" onclick="scrollSlider('favoritesSlider',1)">›</button>
+      </div>
+    </section>
+
+    <section class="row">
+      <h2 class="row-title" id="allMoviesTitle">All Movies</h2>
+      <div class="row-wrap">
+        <button class="scroll-arrow left" onclick="scrollSlider('movieSlider',-1)">‹</button>
+        <div class="slider" id="movieSlider"></div>
+        <button class="scroll-arrow right" onclick="scrollSlider('movieSlider',1)">›</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Data Panels -->
+  <section class="panels">
+    <div class="panel">
       <h2>Watch History</h2>
-      <div id="watchHistory" class="list"></div>
+      <div id="watchHistory"></div>
     </div>
-
-    <div class="panel glass">
+    <div class="panel">
       <h2>Notifications</h2>
-      <div id="notificationList" class="list"></div>
+      <div id="notificationList"></div>
     </div>
   </section>
 
-  <div id="playerOverlay" class="player-overlay hidden">
-    <div class="player-card">
-      <h3 id="playingTitle">Now Playing</h3>
-      <p>Simulating movie playback...</p>
+  <!-- Player Modal -->
+  <div class="player-modal hidden" id="playerModal">
+    <div class="player-box">
+      <h3 id="playerTitle">Now Playing</h3>
+      <p>Simulating playback…</p>
+      <div class="progress-ring"></div>
     </div>
   </div>
 
-  <footer class="site-footer">
-    <p>Name: Yash Raj &nbsp; | &nbsp; Reg No: RA2411026010746</p>
-    <p>Name: Kunal Kumar &nbsp; | &nbsp; Reg No: RA2411026010747</p>
+  <footer class="footer">
+    <p>Streametrics &mdash; University DBMS Project &mdash; Yash Raj &amp; Kunal Kumar</p>
   </footer>
 
   <script src="script.js"></script>
